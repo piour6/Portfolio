@@ -179,6 +179,21 @@ body {
 	opacity: 0;
 }
 
+.intro_bg {
+	/*background: url(https://images.unsplash.com/photo-1519068724163-875792bb7c03?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=3c40b36406e51e677bc2cef7138f0061&auto=format&fit=crop&w=1924&q=80) center center no-repeat fixed;*/
+	/*background: url(https://images.unsplash.com/photo-1507149677524-254e3ebb240f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2a4abd951ea1c9ad88ada84cef4a6eb5&auto=format&fit=crop&w=1351&q=80) center center no-repeat fixed;*/
+	background: url(https://images.unsplash.com/photo-1500840470399-1a3f0ed68783?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c6b8136eaba0b1d77c1311640ffeaf42&auto=format&fit=crop&w=634&q=80) center center no-repeat fixed;
+	background-size: cover;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 2;
+	opacity: 0.05;
+	animation: glitch-bg 6s infinite linear alternate-reverse;
+}
+
 /* ==========================================================================
 	Sidebar
    ========================================================================== */
@@ -864,6 +879,96 @@ button, input, optgroup, select, textarea {
     }
     to {
         clip: rect(38px, 9999px, 83px, 0)
+    }
+}
+
+@keyframes glitch-bg {
+    6.66666667% {
+        left: -10px
+    }
+    10% {
+        left: 20px
+    }
+    13.33333333% {
+        left: -5px
+    }
+    16.66666667% {
+        left: 0
+    }
+    20% {
+        left: 30px
+    }
+    23.33333333% {
+        left: -10px
+    }
+    26.66666667% {
+        left: 5px
+    }
+    30% {
+        left: 0
+    }
+    33.33333333% {
+        left: 0
+    }
+    36.66666667% {
+        left: 0
+    }
+    40% {
+        left: 5px
+    }
+    43.33333333% {
+        left: -20px
+    }
+    46.66666667% {
+        left: 15px
+    }
+    50% {
+        left: -25px
+    }
+    53.33333333% {
+        left: 5px
+    }
+    56.66666667% {
+        left: -5px
+    }
+    60% {
+        left: 10px
+    }
+    63.33333333% {
+        left: 0
+    }
+    66.66666667% {
+        left: 0
+    }
+    70% {
+        left: 0
+    }
+    73.33333333% {
+        left: 25px
+    }
+    76.66666667% {
+        left: -20px
+    }
+    80% {
+        left: 30px
+    }
+    83.33333333% {
+        left: 0
+    }
+    86.66666667% {
+        left: 0
+    }
+    90% {
+        left: 0
+    }
+    93.33333333% {
+        left: -30px
+    }
+    96.66666667% {
+        left: 10px
+    }
+    to {
+        left: 0
     }
 }
 
