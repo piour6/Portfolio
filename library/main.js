@@ -71,4 +71,12 @@ $(document).ready(function(){
    		closeSidebar();
    });
 
+/* ==========================================================================
+   Projects
+   ========================================================================== */
+
+   $(".trigger_projects").click(function(){
+   		$("html,body").stop().animate({"scrollTop": $(".section--projects").offset().top},1000);
+   });
+
 });

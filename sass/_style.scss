@@ -159,6 +159,7 @@ body {
 	@extend .noise;
 	@extend .gradient;
 	background: url(../../graphics/intro_bg.jpg) center center no-repeat fixed;
+	/*background: url(https://images.unsplash.com/photo-1507149677524-254e3ebb240f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2a4abd951ea1c9ad88ada84cef4a6eb5&auto=format&fit=crop&w=1351&q=80) center center no-repeat fixed;*/
 	background-size: cover;
 }
 
@@ -315,9 +316,10 @@ html.noscroll {
    ========================================================================== */
 
 .title_section {
-	font-size: 36px;
+	font-size: 48px;
 	color: $dark-purple;
 	margin-bottom: 40px;
+	line-height: 1.2;
 }
 
 /* ==========================================================================
@@ -692,7 +694,7 @@ button, input, optgroup, select, textarea {
 
 .glitch:after {
     left: -1px;
-    text-shadow: -2px 0 #6b5da0;
+    text-shadow: -2px 0 #ff0000;
     clip: rect(85px,550px,140px,0);
     animation: glitch-anim 5s infinite linear alternate-reverse;
 }
@@ -908,7 +910,7 @@ button, input, optgroup, select, textarea {
         left: 0;
         width: 100%;
         height: 100%;
-        background: url('https://anatacreative.com/codepen/noise.png');
+        background: url('../../graphics/noise.png');
         animation: 1s infinite noise;
         pointer-events: none;
     }
