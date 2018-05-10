@@ -36,6 +36,22 @@
 
 <body>
 
+    <!-- nav -->
+
+    <nav class="nav nav--top">
+        <div class="hamburger">
+            <div class="hamburger__line hamburger__line--top"></div>
+            <div class="hamburger__line hamburger__line--center"></div>
+            <div class="hamburger__line hamburger__line--bottom"></div>
+        </div>
+        <div class="container">
+            <strong>Pierre Henrion</strong> <span class="tablet_hidden">- Webdesigner et développeur front-end</span>
+        </div>
+        <div class="sidebar__close trigger_close">Fermer</div>
+    </nav>
+
+    <!-- // nav -->
+
     <!-- intro -->
 
     <section class="section section--intro">
@@ -45,24 +61,14 @@
                 <span class="logo__item logo__item--line wow zoomIn" data-wow-delay="0.1s" data-text=">">></span>
             </div>
         </h1>
-        <nav class="nav nav--top">
-            <div class="hamburger">
-                <div class="hamburger__line hamburger__line--top"></div>
-                <div class="hamburger__line hamburger__line--center"></div>
-                <div class="hamburger__line hamburger__line--bottom"></div>
-            </div>
-            <div class="container">
-                <strong>Pierre Henrion</strong> - Webdesigner et développeur front-end
-            </div>
-        </nav>
         <img src="graphics/sepa_mini.png" alt="Separation" class="sepa" />
         <canvas id="blob"></canvas>
         <nav class="nav nav--intro">
             <ul>
-                <li class="nav__item nav__item--abs1 trigger_sidebar" data-sidebar="about">
+                <li class="nav__item nav__item--abs1 trigger_sidebar tablet_hidden" data-sidebar="about">
                     <div class="wow fadeInUp" data-wow-delay="0.5s">À propos de moi</div>
                 </li>
-                <li class="nav__item nav__item--abs2 trigger_sidebar" data-sidebar="contact">
+                <li class="nav__item nav__item--abs2 trigger_sidebar tablet_hidden" data-sidebar="contact">
                     <div class="wow fadeInUp" data-wow-delay="0.7s">Me contacter</div>
                 </li>
                 <li class="nav__item nav__item--abs3 trigger_projects">
@@ -96,7 +102,6 @@
     <!-- about -->
 
     <div class="sidebar sidebar--about" data-sidebar="about">
-        <div class="sidebar__close trigger_close">Fermer</div>
         <div class="sidebar__content">
             <h2 class="title_section">Véritable passionné de digital, toujours en quête de la satisfaction du client.</h2>
             <p>
@@ -110,7 +115,6 @@
     <!-- contact -->
 
     <div class="sidebar sidebar--contact" data-sidebar="contact">
-        <div class="sidebar__close trigger_close">Fermer</div>
         <div class="sidebar__content">
             <h2 class="title_section">Me contacter</h2>
             <p>

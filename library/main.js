@@ -25,7 +25,7 @@ function parallaxBg(){
 }
 
 function closeSidebar(){
-	$(".sidebar, .sidebar_overlay").removeClass("show");
+	$(".sidebar, .sidebar_overlay, .sidebar__close").removeClass("show");
 	continueScrolling();
 }
 
@@ -66,7 +66,7 @@ $(document).ready(function(){
 
    $(".trigger_sidebar").click(function(){
    		var sidebar = $(this).data("sidebar");
-   		$(".sidebar[data-sidebar="+sidebar+"], .sidebar_overlay[data-sidebar="+sidebar+"]").addClass("show");
+   		$(".sidebar[data-sidebar="+sidebar+"], .sidebar_overlay[data-sidebar="+sidebar+"], .sidebar__close").addClass("show");
    		stopScrolling();
    });
 

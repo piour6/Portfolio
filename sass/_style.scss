@@ -177,6 +177,7 @@ body {
 	height: 100%;
 	z-index: 6;
 	opacity: 0;
+	pointer-events: none;
 }
 
 .intro_bg {
@@ -192,6 +193,7 @@ body {
 	height: 100%;
 	z-index: 2;
 	opacity: 0.05;
+	pointer-events: none;
 	/*animation: glitch-bg 3s infinite linear alternate-reverse;*/
 }
 
@@ -208,6 +210,7 @@ body {
 	height: 100%;
 	z-index: 2;
 	opacity: 0.02;
+	pointer-events: none;
 	animation: glitch-bg 5s 0.3s infinite linear alternate-reverse;
 }
 
@@ -226,14 +229,9 @@ html.noscroll {
 	height: 100%;
 	background: #fff;
 	top: 0;
-	z-index: 1000;
+	z-index: 10;
 	overflow-y: auto;
 	@extend .transition_slow;
-	&.show {
-		.sidebar__close {
-			right: 0;
-		}
-	}
 }
 
 .sidebar--about {
@@ -251,10 +249,10 @@ html.noscroll {
 }
 
 .sidebar__close {
-	position: fixed;
+	position: absolute;
 	right: -80px;
 	top: 0;
-	height: 80px;
+	height: 100%;
 	background: $yellow;
 	cursor: pointer;
 	width: 80px;
@@ -287,6 +285,9 @@ html.noscroll {
 			width: 100%;
 		}
 	}
+	&.show {
+		right: 0;
+	}	
 }
 
 .sidebar_overlay {
@@ -302,7 +303,7 @@ html.noscroll {
 	background: url(https://images.unsplash.com/photo-1500840470399-1a3f0ed68783?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c6b8136eaba0b1d77c1311640ffeaf42&auto=format&fit=crop&w=634&q=80) center center no-repeat fixed;
 	background-size: cover;
 	transition: all 1s cubic-bezier(.175, .885, .32, 1);
-	z-index: 777;
+	z-index: 7;
 	opacity: 0.2;
 	&.show {
 		left: 0;
@@ -313,7 +314,7 @@ html.noscroll {
 	left: -100%;
 	background: rgba(#000, 0.5);
 	transition: all 1.5s cubic-bezier(.175, .885, .32, 1);
-	z-index: 888;
+	z-index: 8;
 	&.show {
 		left: 0;
 	}
@@ -325,7 +326,7 @@ html.noscroll {
 	background: url(https://images.unsplash.com/photo-1500840470399-1a3f0ed68783?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c6b8136eaba0b1d77c1311640ffeaf42&auto=format&fit=crop&w=634&q=80) center center no-repeat fixed;
 	background-size: cover;
 	transition: all 1s cubic-bezier(.175, .885, .32, 1);
-	z-index: 777;
+	z-index: 7;
 	opacity: 0.2;
 	&.show {
 		right: 0;
@@ -336,7 +337,7 @@ html.noscroll {
 	right: -100%;
 	background: rgba($dark-purple, 0.5);
 	transition: all 1.5s cubic-bezier(.175, .885, .32, 1);
-	z-index: 888;
+	z-index: 8;
 	&.show {
 		right: 0;
 	}
@@ -345,7 +346,8 @@ html.noscroll {
 .sidebar__content {
 	@extend .container;
 	@extend .transition_slow;
-	padding-top: 100px;
+	width: 800px;
+	padding-top: 200px;
 	padding-bottom: 100px;
 }
 
@@ -389,6 +391,14 @@ html.noscroll {
 	font-size: 100px;
 	line-height: 1;
 	text-align: center;
+	@include mq("tablet")
+	{
+		font-size: 80px;
+	}
+	@include mq("mobile")
+	{
+		font-size: 50px;
+	}	
 }
 
 .logo__item {
@@ -419,7 +429,7 @@ html.noscroll {
 	width: 100%;
 	top: 0;
 	left: 0;
-	z-index: 666;
+	z-index: 1001;
 	text-align: center;
 	padding: 20px 0;
 	background: #fff;
@@ -517,7 +527,16 @@ html.noscroll {
 	}
 	&:after {
 		bottom: 50px;
+		@include mq("mobile")
+		{
+			display: none;
+		} 		
 	}
+	@include mq("mobile")
+	{
+		width: 100%;
+	    text-align: center;
+	}    	
 }   
 
 .hamburger {
@@ -529,6 +548,7 @@ html.noscroll {
 	background: $yellow;
 	cursor: pointer;
 	width: 80px;
+	z-index: 10;
 	@extend .transition;
 	&:before {
 		content: '';
