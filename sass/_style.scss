@@ -405,6 +405,9 @@ html.noscroll {
 	display: block;
 	text-shadow: 0 10px 10px rgba(0,0,0,0.1);
 	@extend .glitch;
+	em {
+		/*color: $yellow;*/
+	}
 }
 
 .logo__item--line {
