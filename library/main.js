@@ -5,5 +5,24 @@ var _typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function
 
 // INIT
 
-new WOW().init();
+function parallaxBg(){
+	var x = $(this).scrollTop();
+	var ratio_x_logo = parseInt(-x / 2);
+	var ratio_x_blob = parseInt(-x / 2.5);
+	var ratio_x_overlay = x / 1000;
+    $(".logo").css({'marginTop': ratio_x_logo + 'px'});
+    $("#blob").css({'marginTop': ratio_x_blob + 'px'});
+    $(".intro_overlay").css({'opacity': ratio_x_overlay});
+}
 
+$(document).ready(function(){
+
+	new WOW().init();
+
+	parallaxBg();
+
+	$(window).on("scroll resize",function(){
+		parallaxBg();
+	});
+
+});
