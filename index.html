@@ -36,6 +36,8 @@
 
 <body>
 
+    <!-- intro -->
+
     <section class="section section--intro">
         <h1 class="logo">
             <div class="wow zoomIn">
@@ -57,10 +59,10 @@
         <canvas id="blob"></canvas>
         <nav class="nav nav--intro">
             <ul>
-                <li class="nav__item nav__item--abs1">
+                <li class="nav__item nav__item--abs1 trigger_sidebar" data-sidebar="about">
                     <div class="wow fadeInUp" data-wow-delay="0.5s">À propos de moi</div>
                 </li>
-                <li class="nav__item nav__item--abs2">
+                <li class="nav__item nav__item--abs2 trigger_sidebar" data-sidebar="contact">
                     <div class="wow fadeInUp" data-wow-delay="0.7s">Me contacter</div>
                 </li>
                 <li class="nav__item nav__item--abs3">
@@ -74,9 +76,48 @@
         <div class="intro_overlay"></div>        
     </section>
 
+    <!-- // intro -->
+
+    <!-- projects -->
+
     <section class="section section--projects">
         
     </section>
+
+    <!-- // projects -->
+
+    <div class="sidebar_overlay sidebar_overlay--about1" data-sidebar="about"></div>
+    <div class="sidebar_overlay sidebar_overlay--about2" data-sidebar="about"></div>
+    <div class="sidebar_overlay sidebar_overlay--contact1" data-sidebar="contact"></div>
+    <div class="sidebar_overlay sidebar_overlay--contact2" data-sidebar="contact"></div>
+
+    <!-- about -->
+
+    <div class="sidebar sidebar--about" data-sidebar="about">
+        <div class="sidebar__close trigger_close">Fermer</div>
+        <div class="sidebar__content">
+            <h2 class="title_section">À propos de moi</h2>
+            <p>
+                Blah blah blah
+            </p>
+        </div>
+    </div>
+
+    <!-- // about -->
+
+    <!-- contact -->
+
+    <div class="sidebar sidebar--contact" data-sidebar="contact">
+        <div class="sidebar__close trigger_close">Fermer</div>
+        <div class="sidebar__content">
+            <h2 class="title_section">Me contacter</h2>
+            <p>
+                Blah blah blah
+            </p>
+        </div>
+    </div>
+
+    <!-- // contact -->
 
     <script src="dist/library/main.min.js"></script>
 

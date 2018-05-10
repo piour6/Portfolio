@@ -179,6 +179,148 @@ body {
 }
 
 /* ==========================================================================
+	Sidebar
+   ========================================================================== */
+
+html.noscroll {
+    overflow-y: hidden;
+    width: 100%;
+}
+
+.sidebar {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background: #fff;
+	top: 0;
+	z-index: 1000;
+	overflow-y: auto;
+	@extend .transition_slow;
+	&.show {
+		.sidebar__close {
+			right: 0;
+		}
+	}
+}
+
+.sidebar--about {
+	left: -100%;
+	&.show {
+		left: 0;
+	}	
+}
+
+.sidebar--contact {
+	right: -100%;
+	&.show {
+		right: 0;
+	}	
+}
+
+.sidebar__close {
+	position: fixed;
+	right: -80px;
+	top: 0;
+	height: 80px;
+	background: $yellow;
+	cursor: pointer;
+	width: 80px;
+	text-indent: -9999px;
+	@extend .transition_slow;
+	&:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		background: $dark-purple;
+		width: 0;
+		@extend .transition;
+	}
+	&:after {
+		width: 30px;
+		height: 30px;
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		display: block;
+		background: url(../../graphics/close.png) center center no-repeat;
+		background-size: contain;
+	}
+	&:hover {
+		&:before {
+			width: 100%;
+		}
+	}
+}
+
+.sidebar_overlay {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.sidebar_overlay--about1 {
+	left: -100%;
+	background: $dark-purple;
+	transition: all 1s cubic-bezier(.175, .885, .32, 1);
+	z-index: 777;
+	&.show {
+		left: 0;
+	}
+}
+
+.sidebar_overlay--about2 {
+	left: -100%;
+	background: $yellow;
+	transition: all 1.5s cubic-bezier(.175, .885, .32, 1);
+	z-index: 888;
+	&.show {
+		left: 0;
+	}
+}
+
+.sidebar_overlay--contact1 {
+	right: -100%;
+	background: $dark-purple;
+	transition: all 1s cubic-bezier(.175, .885, .32, 1);
+	z-index: 777;
+	&.show {
+		right: 0;
+	}
+}
+
+.sidebar_overlay--contact2 {
+	right: -100%;
+	background: $yellow;
+	transition: all 1.5s cubic-bezier(.175, .885, .32, 1);
+	z-index: 888;
+	&.show {
+		right: 0;
+	}
+}
+
+.sidebar__content {
+	@extend .container;
+	@extend .transition_slow;
+	padding-top: 100px;
+	padding-bottom: 100px;
+}
+
+/* ==========================================================================
+	Titles
+   ========================================================================== */
+
+.title_section {
+	font-size: 36px;
+	color: $dark-purple;
+	margin-bottom: 40px;
+}
+
+/* ==========================================================================
 	Separation
    ========================================================================== */
 
@@ -518,6 +660,10 @@ button, input, optgroup, select, textarea {
 
 .transition {
 	transition: all 0.3s cubic-bezier(.175, .885, .32, 1);
+}
+
+.transition_slow {
+	transition: all 2s cubic-bezier(.175, .885, .32, 1);
 }
 
 .bounce {
