@@ -2,11 +2,7 @@
 	Variables
    ========================================================================== */
 
-$orange: #f08500;
-$brown_dark: #291c10;
-$brown: #4a382b;
-$black: #1d1d1b;
-$green: #b2d04b;
+$yellow: #d9b24c;
 
 /* ==========================================================================
 	Helpers
@@ -64,12 +60,8 @@ $green: #b2d04b;
 	Colors
    ========================================================================== */
 
-.orange {
-	color: $orange;
-}
-
-.green {
-	color: $green;
+.yellow {
+	color: $yellow;
 }
 
 .white {
@@ -109,6 +101,259 @@ $green: #b2d04b;
 	  padding-bottom: 50px;
 	}	
 }
+
+/* ==========================================================================
+	Fonts
+   ========================================================================== */
+
+.roadrage { font-family: 'roadrage'; }
+.light { font-weight: 300; }
+.bold { font-weight: 700; }
+.italic { font-style: italic; }
+.ttu, .text_uppercase { text-transform: uppercase; }
+
+/* ==========================================================================
+	Main layout
+   ========================================================================== */
+
+html, body {
+	position: relative;
+	height: 100%;
+}
+
+body {
+	font-size: 16px;
+	color: #666;
+	line-height: 1.5;
+	position: relative;
+	font-family: 'Poppins', sans-serif;
+}
+
+.container {
+	padding-left: 40px;
+	padding-right: 40px;
+	max-width: 100%;
+	width: 1160px;
+	margin-left: auto;
+	margin-right: auto;
+	@include mq("tablet")
+	{
+	  padding-left: 25px;
+	  padding-right: 25px;
+	}	
+}
+
+.section {
+	background-color: #fff;
+	min-height: 100%;
+	overflow: hidden;
+}
+
+.section--intro {
+	position: relative;
+	@extend .noise;
+	@extend .gradient;
+	background: url(../../graphics/intro_bg.jpg) center center no-repeat fixed;
+	background-size: cover;
+}
+
+.section--projects {
+	position: relative;
+	z-index: 10;
+}
+
+/* ==========================================================================
+	Separation
+   ========================================================================== */
+
+.sepa {
+	width: 100%;
+	position: absolute;
+	display: block;
+	bottom: 0;
+	left: 0;
+	z-index: 4;
+	height: 10px;
+}
+
+/* ==========================================================================
+	Logo
+   ========================================================================== */
+
+.logo {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 3;
+	@extend .roadrage;
+	color: #fff;
+	font-size: 100px;
+	line-height: 1;
+	text-align: center;
+}
+
+.logo__item {
+	display: block;
+	@extend .glitch;
+}
+
+.logo__item--line {
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	font-size: 60px;	
+	margin-bottom: -20px;
+	color: $yellow;
+	&.glitch {
+		position: absolute;
+	}
+}
+
+.intro_text {
+	position: relative;
+	z-index: 6;
+	text-align: center;
+	padding-top: 60px;
+	padding-bottom: 60px;
+	text-transform: uppercase;
+	font-size: 13px;
+	letter-spacing: 1px;
+	color: #e2dce1;
+	strong {
+		color: #fff;
+		@extend .bold;
+	}
+}
+
+/* ==========================================================================
+	Forms
+   ========================================================================== */
+
+#blob {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 2;
+	opacity: 0.1;
+}
+
+/* ==========================================================================
+	Forms
+   ========================================================================== */
+
+button, input, optgroup, select, textarea {
+	font: inherit;
+}
+
+/* ==========================================================================
+	Wysiwyg
+   ========================================================================== */
+
+.wysiwyg {
+	color: #989898;
+	line-height: 1.8;
+	letter-spacing: 1px;
+}
+
+.wysiwyg strong {
+	color: #333;
+	font-weight: bold;
+}
+
+.wysiwyg ul {
+	padding-left: 20px;
+}
+
+.wysiwyg li {
+    margin-bottom: 10px;
+    padding-left: 15px;
+    position: relative;
+}
+
+.wysiwyg li:last-child {
+	margin-bottom: 0;
+}
+
+.wysiwyg li:before {
+	position: absolute;
+	content: '';
+	border-radius: 50%;
+	width: 4px;
+	height: 4px;
+	left: 0;
+	top: 9px;
+}
+
+.wysiwyg a {
+	text-decoration: underline;
+}
+
+.wysiwyg a:hover {
+	text-decoration: none;
+}
+
+/* ==========================================================================
+	Responsive
+   ========================================================================== */
+
+.tablet_full {
+ @include mq("tablet")
+ {
+    width: 100%;
+ }
+}
+
+.tablet_half {
+ @include mq("tablet")
+ {
+    width: 50%;
+ }
+}
+
+.tablet_hidden {
+ @include mq("tablet")
+ {
+    display: none;
+ }
+}
+
+.tablet_show {
+ display: none;
+ @include mq("tablet")
+ {
+    display: block;
+ }
+}
+
+.mobile_hidden {
+ @include mq("mobile")
+ {
+    display: none;
+ }
+}  
+
+.mobile_full {
+ @include mq("mobile")
+ {
+    width: 100%;
+ }
+}  
+
+.tablet_third {
+ @include mq("tablet")
+ {
+    width: 33.3333%;
+ }
+}  
+
+.mobile_half {
+ @include mq("mobile")
+ {
+    width: 50%;
+ }
+} 
 
 /* ==========================================================================
 	Animations
@@ -403,222 +648,3 @@ $green: #b2d04b;
         background-position: -10% 10%;
     }
 }
-
-/* ==========================================================================
-	Fonts
-   ========================================================================== */
-
-.roadrage { font-family: 'roadrage'; }
-.regular { font-weight: 400; }
-.semibold { font-weight: 600; }
-.italic { font-style: italic; }
-.ttu, .text_uppercase { text-transform: uppercase; }
-
-/* ==========================================================================
-	Main layout
-   ========================================================================== */
-
-html, body {
-	position: relative;
-	height: 100%;
-}
-
-body {
-	font-size: 16px;
-	color: #666;
-	line-height: 1.5;
-	position: relative;
-}
-
-.container {
-	padding-left: 40px;
-	padding-right: 40px;
-	max-width: 100%;
-	width: 1160px;
-	margin-left: auto;
-	margin-right: auto;
-	@include mq("tablet")
-	{
-	  padding-left: 25px;
-	  padding-right: 25px;
-	}	
-}
-
-.section {
-	background-color: #fff;
-	min-height: 100%;
-	overflow: hidden;
-}
-
-.section--intro {
-	position: relative;
-	@extend .noise;
-	@extend .gradient;
-	background: url(../../graphics/intro_bg.jpg) center center no-repeat fixed;
-	background-size: cover;
-}
-
-.section--projects {
-	position: relative;
-	z-index: 10;
-}
-
-/* ==========================================================================
-	Logo
-   ========================================================================== */
-
-.logo {
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	z-index: 3;
-	@extend .roadrage;
-	color: #fff;
-	font-size: 100px;
-	line-height: 1;
-	text-align: center;
-}
-
-.logo__item {
-	display: block;
-	@extend .glitch;
-}
-
-.logo__item--line {
-	position: absolute;
-	bottom: 0;
-	left: 50%;
-	transform: translateX(-50%);
-	font-size: 60px;	
-	margin-bottom: -20px;
-}
-
-/* ==========================================================================
-	Forms
-   ========================================================================== */
-
-#blob {
-	position: fixed;
-	top: 0;
-	left: 0;
-	z-index: 2;
-	opacity: 0.1;
-}
-
-/* ==========================================================================
-	Forms
-   ========================================================================== */
-
-button, input, optgroup, select, textarea {
-	font: inherit;
-}
-
-/* ==========================================================================
-	Wysiwyg
-   ========================================================================== */
-
-.wysiwyg {
-	color: #989898;
-	line-height: 1.8;
-	letter-spacing: 1px;
-}
-
-.wysiwyg strong {
-	color: #333;
-	font-weight: bold;
-}
-
-.wysiwyg ul {
-	padding-left: 20px;
-}
-
-.wysiwyg li {
-    margin-bottom: 10px;
-    padding-left: 15px;
-    position: relative;
-}
-
-.wysiwyg li:last-child {
-	margin-bottom: 0;
-}
-
-.wysiwyg li:before {
-	position: absolute;
-	content: '';
-	border-radius: 50%;
-	width: 4px;
-	height: 4px;
-	background: $green;
-	left: 0;
-	top: 9px;
-}
-
-.wysiwyg a {
-	text-decoration: underline;
-}
-
-.wysiwyg a:hover {
-	text-decoration: none;
-}
-
-/* ==========================================================================
-	Responsive
-   ========================================================================== */
-
-.tablet_full {
- @include mq("tablet")
- {
-    width: 100%;
- }
-}
-
-.tablet_half {
- @include mq("tablet")
- {
-    width: 50%;
- }
-}
-
-.tablet_hidden {
- @include mq("tablet")
- {
-    display: none;
- }
-}
-
-.tablet_show {
- display: none;
- @include mq("tablet")
- {
-    display: block;
- }
-}
-
-.mobile_hidden {
- @include mq("mobile")
- {
-    display: none;
- }
-}  
-
-.mobile_full {
- @include mq("mobile")
- {
-    width: 100%;
- }
-}  
-
-.tablet_third {
- @include mq("tablet")
- {
-    width: 33.3333%;
- }
-}  
-
-.mobile_half {
- @include mq("mobile")
- {
-    width: 50%;
- }
-} 
