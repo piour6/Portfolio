@@ -124,6 +124,91 @@ $green: #b2d04b;
   100%     { top:-5px;}
 }
 
+.gradient {
+	&::after {
+		content: '';
+		position: absolute;
+		opacity: 0.1;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 1;
+		background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+		background-size: 400% 400%;
+		animation: gradient 40s ease infinite;
+	}
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+.noise {
+    &::before {
+        content: "";
+        z-index: 2;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('https://anatacreative.com/codepen/noise.png');
+        animation: 1s infinite noise;
+        pointer-events: none;
+    }
+}
+
+@keyframes noise {
+    0%, 100% {
+        background-position: 0 0;
+    }
+
+    10% {
+        background-position: -5% -10%;
+    }
+
+    20% {
+        background-position: -15% 5%;
+    }
+
+    30% {
+        background-position: 7% -25%;
+    }
+
+    40% {
+        background-position: 20% 25%;
+    }
+
+    50% {
+        background-position: -25% 10%;
+    }
+
+    60% {
+        background-position: 15% 5%;
+    }
+
+    70% {
+        background-position: 0% 15%;
+    }
+
+    80% {
+        background-position: 25% 35%;
+    }
+
+    90% {
+        background-position: -10% 10%;
+    }
+}
+
 /* ==========================================================================
 	Fonts
    ========================================================================== */
@@ -137,11 +222,15 @@ $green: #b2d04b;
 	Main layout
    ========================================================================== */
 
+html, body {
+	position: relative;
+	height: 100%;
+}
+
 body {
 	font-size: 16px;
 	color: #666;
-	line-height: 1.3;
-	font-family: "Open Sans";
+	line-height: 1.5;
 	position: relative;
 }
 
@@ -159,27 +248,34 @@ body {
 	}	
 }
 
-.container--half {
-	width: 580px;
-}
-
-.container--zindex, .zindex {
-	position: relative;
-	z-index: 1;
-}
-
 .section {
-	@extend .padding_topbottom_100;
-	position: relative;
-	@include mq("tablet")
-	{
-	  overflow: hidden;
-	}	
+	min-height: 100%;
+	overflow: hidden;
 }
 
-.section--nopadding {
-	padding-top: 0;
-	padding-bottom: 0;
+.section--intro {
+	position: relative;
+	@extend .noise;
+	@extend .gradient;
+	background: url(../../graphics/intro_bg.jpg) center center no-repeat fixed;
+	background-size: cover;
+}
+
+.section--projects {
+	position: relative;
+	z-index: 2;
+}
+
+/* ==========================================================================
+	Forms
+   ========================================================================== */
+
+#blob {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 2;
+	opacity: 0.1;
 }
 
 /* ==========================================================================
