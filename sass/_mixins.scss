@@ -1,0 +1,32 @@
+$breakpoints: (
+	desktop_small: "(max-width:1400px)",
+	tablet: "(max-width:1100px)",
+  mobile: "(max-width:600px)"
+) !default;
+
+@mixin mq($breakpoint-name)
+{
+	$breakpoint-name: unquote($breakpoint-name);
+	@if map-has-key($breakpoints, $breakpoint-name)
+	{
+		$query: map-get($breakpoints, $breakpoint-name);
+		@media all and #{$query}
+		{
+			@content;
+		}
+	}
+	@else
+	{
+		@warn "#{$mq-name} is not a value defined in the 'breakpoints' map.";
+	}
+}
+
+@mixin gradient($from-color, $to-color) {
+	background-color: mix($from-color, $to-color); /* Fallback */
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($from-color), to($to-color));
+	background-image: -webkit-linear-gradient(top, $from-color, $to-color); 
+	background-image:    -moz-linear-gradient(top, $from-color, $to-color);
+	background-image:     -ms-linear-gradient(top, $from-color, $to-color);
+	background-image:      -o-linear-gradient(top, $from-color, $to-color);
+	-ms-filter:	"progid:DXImageTransform.Microsoft.gradient(startColorStr='#{$from-color}', EndColorStr='#{$to-color}')";
+}
