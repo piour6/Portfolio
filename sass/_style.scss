@@ -312,7 +312,7 @@ html.noscroll {
 
 .sidebar_overlay--about2 {
 	left: -100%;
-	background: rgba(#000, 0.5);
+	background: rgba($yellow, 0.2);
 	transition: all 1.5s cubic-bezier(.175, .885, .32, 1);
 	z-index: 8;
 	&.show {
@@ -335,7 +335,7 @@ html.noscroll {
 
 .sidebar_overlay--contact2 {
 	right: -100%;
-	background: rgba($dark-purple, 0.5);
+	background: rgba($yellow, 0.2);
 	transition: all 1.5s cubic-bezier(.175, .885, .32, 1);
 	z-index: 8;
 	&.show {
@@ -440,6 +440,10 @@ html.noscroll {
 	strong {
 		color: $dark-purple;
 		@extend .bold;
+		@include mq("mobile")
+		{
+			font-size: 14px;
+		}		
 	}
 	.container {
 		position: relative;
@@ -461,7 +465,7 @@ html.noscroll {
 			position: absolute;
 			width: 1px;
 			height: 30px;
-			background: #fff;
+			background: rgba(#fff,0.2);
 			left: 50%;
 			@extend .transition;
 		}
@@ -539,6 +543,7 @@ html.noscroll {
 	{
 		width: 100%;
 	    text-align: center;
+	    padding-bottom: 40px;
 	}    	
 }   
 
@@ -577,6 +582,10 @@ html.noscroll {
 			width: 100%;
 		}
 	}
+	@include mq("mobile")
+	{
+		width: 60px;
+	}	
 }
 
 .hamburger__line {
@@ -590,6 +599,10 @@ html.noscroll {
 	&:last-child {
 		margin-bottom: 0;
 	}
+	@include mq("mobile")
+	{
+		margin-left: -10px;
+	}	
 } 
 
 .hamburger__line--top {
@@ -611,6 +624,10 @@ html.noscroll {
 	display: block;
 	margin-bottom: 20px;
 	@extend .bounce;
+	@include mq("mobile")
+	{
+		margin-bottom: 15px;
+	}	
 }
 
 /* ==========================================================================
