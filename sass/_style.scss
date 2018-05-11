@@ -229,13 +229,19 @@ html.noscroll {
 	height: 100%;
 	background: #fff;
 	top: 0;
-	z-index: 10;
 	overflow-y: auto;
 	@extend .transition_slow;
+	&.zindex {
+		z-index: 20;
+	}
+	&.animated {
+		top: -100%;
+	}
 }
 
 .sidebar--about {
 	left: -100%;
+	z-index: 10;
 	&.show {
 		left: 0;
 	}	
@@ -243,8 +249,20 @@ html.noscroll {
 
 .sidebar--contact {
 	right: -100%;
+	background: $yellow;
+	z-index: 10;
 	&.show {
 		right: 0;
+	}	
+}
+
+.sidebar--projects {
+	top: 0;
+	display: none;
+	background: $dark-purple;
+	z-index: 9;
+	&.show {
+		display: block;
 	}	
 }
 
@@ -362,6 +380,10 @@ html.noscroll {
 	line-height: 1.2;
 }
 
+.title_section--white {
+	color: #fff;
+}
+
 /* ==========================================================================
 	Separation
    ========================================================================== */
@@ -434,8 +456,9 @@ html.noscroll {
 	left: 0;
 	z-index: 1001;
 	text-align: center;
-	padding: 20px 0;
+	height: 65px;
 	background: #fff;
+	overflow: hidden;
 	box-shadow: 0 0 50px rgba(0,0,0,0.05);
 	strong {
 		color: $dark-purple;
@@ -446,7 +469,45 @@ html.noscroll {
 		}		
 	}
 	.container {
-		position: relative;
+	}
+}
+
+.nav__title {
+	@extend .transition_slow;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	/*opacity: 1;*/
+}
+
+.nav__links {
+	@extend .transition_slow;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	/*opacity: 0;*/
+	margin-top: 65px;
+	li {
+		display: inline-block;
+		margin: 0 10px;
+		text-transform: uppercase;
+		font-size: 14px;
+		cursor: pointer;
+		&.active {
+			@extend .bold;
+			color: $dark-purple;
+		}
+	}
+}
+
+.hasmenu {
+	.nav__title {
+		margin-top: -65px;
+	}
+	.nav__links {
+		margin-top: 0;
 	}
 }
 

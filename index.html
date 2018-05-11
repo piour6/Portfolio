@@ -39,13 +39,20 @@
     <!-- nav -->
 
     <nav class="nav nav--top">
-        <div class="hamburger">
+        <div class="hamburger trigger_sidebar" data-sidebar="menu">
             <div class="hamburger__line hamburger__line--top"></div>
             <div class="hamburger__line hamburger__line--center"></div>
             <div class="hamburger__line hamburger__line--bottom"></div>
         </div>
         <div class="container">
-            <strong>Pierre Henrion</strong> <span class="tablet_hidden">- Webdesigner et développeur front-end</span>
+            <p class="nav__title">
+                <strong>Pierre Henrion</strong> <span class="tablet_hidden">- Webdesigner et développeur front-end</span>
+            </p>
+            <ul class="nav__links">
+                <li class="trigger_sidebar" data-sidebar="about">À propos de moi</li>
+                <li class="trigger_sidebar" data-sidebar="projects">Explorez mes projets</li>
+                <li class="trigger_sidebar" data-sidebar="contact">Me contacter</li>
+            </ul>
         </div>
         <div class="sidebar__close trigger_close">Fermer</div>
     </nav>
@@ -125,7 +132,20 @@
 
     <!-- // contact -->
 
-    <script src="dist/library/main.min.js"></script>
+    <!-- projects -->
+
+    <div class="sidebar sidebar--projects" data-sidebar="projects">
+        <div class="sidebar__content">
+            <h2 class="title_section title_section--white">Projets</h2>
+            <p>
+                Blah blah blah
+            </p>
+        </div>
+    </div>
+
+    <!-- // projects -->
+
+    <script src="dist/library/app.min.js"></script>
 
 </body>
 

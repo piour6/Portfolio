@@ -26,6 +26,8 @@ function parallaxBg(){
 
 function closeSidebar(){
 	$(".sidebar, .sidebar_overlay, .sidebar__close").removeClass("show");
+	$("body").removeClass("hasmenu");
+	$(".nav__links li").removeClass("active");
 	continueScrolling();
 }
 
@@ -33,7 +35,6 @@ function stopScrolling() {
     lastTop = $(window).scrollTop();
     widthBody = $("body").width();
     $('html').addClass('noscroll');
-    $("html").css({ top: -lastTop, width: widthBody });
 }
 
 function continueScrolling() {
@@ -66,7 +67,11 @@ $(document).ready(function(){
 
    $(".trigger_sidebar").click(function(){
    		var sidebar = $(this).data("sidebar");
+   		$("body").addClass("hasmenu");
+   		$(".nav__links li").removeClass("active");
+   		$(".sidebar, .sidebar_overlay").not(".sidebar[data-sidebar=projects]").removeClass("show");
    		$(".sidebar[data-sidebar="+sidebar+"], .sidebar_overlay[data-sidebar="+sidebar+"], .sidebar__close").addClass("show");
+   		$(".nav__links li[data-sidebar="+sidebar+"]").addClass("active");
    		stopScrolling();
    });
 
