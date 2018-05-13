@@ -39,7 +39,7 @@
     <!-- nav -->
 
     <nav class="nav nav--top">
-        <div class="hamburger trigger_sidebar" data-sidebar="menu">
+        <div class="hamburger">
             <div class="hamburger__line hamburger__line--top"></div>
             <div class="hamburger__line hamburger__line--center"></div>
             <div class="hamburger__line hamburger__line--bottom"></div>
@@ -54,7 +54,6 @@
                 <li class="trigger_sidebar" data-sidebar="contact">Me contacter</li>
             </ul>
         </div>
-        <div class="sidebar__close trigger_close">Fermer</div>
     </nav>
 
     <!-- // nav -->
@@ -66,26 +65,27 @@
             <div class="wow zoomIn">
                 <span class="logo__item" data-text="Pierre">Pierre</span>
                 <span class="logo__item logo__item--line wow zoomIn" data-wow-delay="0.1s" data-text=">">></span>
+                <div class="logo__cta wow fadeInUp trigger_projects" data-wow-delay="0.9s">
+                    <span class="logo__glitch" data-text="Explorer mes projets">Explorer mes projets <img width="10" src="graphics/arrow_bottom.png" class="logo__arrow" /></span>
+                </div>                
             </div>
         </h1>
-        <img src="graphics/sepa_mini.png" alt="Separation" class="sepa" />
-        <canvas id="blob"></canvas>
         <nav class="nav nav--intro">
             <ul>
                 <li class="nav__item nav__item--abs1 trigger_sidebar tablet_hidden" data-sidebar="about">
-                    <div class="wow fadeInUp" data-wow-delay="0.5s">À propos de moi</div>
+                    <div class="wow fadeInUp" data-wow-delay="0.5s">
+                        <span class="nav__glitch" data-text="À propos de moi">À propos de moi</span>
+                    </div>
                 </li>
                 <li class="nav__item nav__item--abs2 trigger_sidebar tablet_hidden" data-sidebar="contact">
-                    <div class="wow fadeInUp" data-wow-delay="0.7s">Me contacter</div>
-                </li>
-                <li class="nav__item nav__item--abs3 trigger_projects">
-                    <div class="wow fadeInUp" data-wow-delay="0.9s">
-                        <img src="graphics/scroll.png" alt="Scroll" class="nav__scroll" />
-                        Explorez mes projets
+                    <div class="wow fadeInUp" data-wow-delay="0.7s">
+                        <span class="nav__glitch" data-text="Me contacter">Me contacter</span>
                     </div>
                 </li>
             </ul>
         </nav>
+        <img src="graphics/scroll.png" alt="Scroll" class="logo__scroll trigger_projects" />
+        <img src="graphics/sepa.png" alt="Separation" class="sepa" />
         <div class="intro_overlay"></div>        
         <div class="intro_bg"></div>        
         <div class="intro_bg2"></div>        
@@ -110,7 +110,7 @@
 
     <div class="sidebar sidebar--about" data-sidebar="about">
         <div class="sidebar__content">
-            <h2 class="title_section">Véritable passionné de digital, toujours en quête de la satisfaction du client.</h2>
+            <h2 class="title_section" data-text="Véritable passionné de digital, toujours en quête de la satisfaction du client.">Véritable passionné de digital, toujours en quête de la satisfaction du client.</h2>
             <p>
                 Je dispose actuellement de 6 ans d’expérience en agence où j’ai pu travailler pour des clients prestigieux. Je suis motivé par les challenges qui peuvent également m'offrir la possibilité de me remettre en question et étendre mes compétences. Soucieux du détail, j’accorde énormément d’importance à l’ergonomie et à l’expérience utilisateur. Je suis quelqu’un d’assez autonome et qui apprend vite, ce qui pour moi est indispensable dans les métiers du web.
             </p>
@@ -123,7 +123,7 @@
 
     <div class="sidebar sidebar--contact" data-sidebar="contact">
         <div class="sidebar__content">
-            <h2 class="title_section">Me contacter</h2>
+            <h2 class="title_section" data-text="Me contacter">Me contacter</h2>
             <p>
                 Blah blah blah
             </p>
@@ -136,7 +136,7 @@
 
     <div class="sidebar sidebar--projects" data-sidebar="projects">
         <div class="sidebar__content">
-            <h2 class="title_section title_section--white">Projets</h2>
+            <h2 class="title_section title_section--white" data-text="Projets">Projets</h2>
             <p>
                 Blah blah blahz
             </p>
@@ -144,6 +144,10 @@
     </div>
 
     <!-- // projects -->
+
+    <!-- blob -->
+    <canvas id="blob"></canvas>
+    <!-- // blob -->
 
     <script src="dist/library/app.min.js"></script>
 

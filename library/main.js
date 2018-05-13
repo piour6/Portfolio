@@ -16,12 +16,21 @@ function parallaxBg(){
 	var ratio_x_logo = parseInt(-x / 2);
 	var ratio_x_blob = parseInt(-x / 2.5);
 	var ratio_x_overlay = x / 800;
-    var scale = 1 +  x / 2000;
-    $(".logo").css({'marginTop': ratio_x_logo + 'px'});
-    $("#blob").css({'marginTop': ratio_x_blob + 'px'});
-    $(".intro_overlay").css({'opacity': ratio_x_overlay});
-	$('.logo').css({'transform': 'translate(-50%, -50%) scale('+scale+','+scale+')'});
-	$(".section--intro").css({'backgroundPosition': '0% ' + ratio_x_logo + 'px'});
+  var scale = 1 +  x / 2000;
+  $(".logo").css({'marginTop': ratio_x_logo + 'px'});
+  $("#blob").css({'marginTop': ratio_x_blob + 'px'});
+  $(".intro_overlay").css({'opacity': ratio_x_overlay});
+  // $('.logo').css({'transform': 'translate(-50%, -50%) scale('+scale+','+scale+')'});
+  $(".section--intro").css({'backgroundPosition': '0% ' + ratio_x_logo + 'px'});
+}
+
+function openSidebar(sidebar){
+  $("body").addClass("hasmenu");
+  $(".nav__links li").removeClass("active");
+  $(".sidebar, .sidebar_overlay").not(".sidebar[data-sidebar=projects]").removeClass("show");
+  $(".sidebar[data-sidebar="+sidebar+"], .sidebar_overlay[data-sidebar="+sidebar+"], .sidebar__close").addClass("show");
+  $(".nav__links li[data-sidebar="+sidebar+"]").addClass("active");
+  stopScrolling();  
 }
 
 function closeSidebar(){
@@ -66,17 +75,16 @@ $(document).ready(function(){
    ========================================================================== */
 
    $(".trigger_sidebar").click(function(){
-   		var sidebar = $(this).data("sidebar");
-   		$("body").addClass("hasmenu");
-   		$(".nav__links li").removeClass("active");
-   		$(".sidebar, .sidebar_overlay").not(".sidebar[data-sidebar=projects]").removeClass("show");
-   		$(".sidebar[data-sidebar="+sidebar+"], .sidebar_overlay[data-sidebar="+sidebar+"], .sidebar__close").addClass("show");
-   		$(".nav__links li[data-sidebar="+sidebar+"]").addClass("active");
-   		stopScrolling();
+      var sidebar = $(this).data("sidebar");
+      openSidebar(sidebar);
    });
 
-   $(".trigger_close").click(function(){
-   		closeSidebar();
+   $(".hamburger").click(function(){
+      if($("body").hasClass("hasmenu")){
+   		 closeSidebar();
+      } else {
+        openSidebar("about");
+      }
    });
 
 /* ==========================================================================
