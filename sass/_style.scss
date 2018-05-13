@@ -330,7 +330,9 @@ html.noscroll {
 
 .sidebar_overlay--about2 {
 	left: -100%;
-	background: rgba($yellow, 0.2);
+	/*background: rgba($yellow, 0.2);*/
+	background: url(../../graphics/pattern8.gif);
+	opacity: 0.05;	
 	transition: all 1.5s cubic-bezier(.175, .885, .32, 1);
 	z-index: 8;
 	&.show {
@@ -353,7 +355,9 @@ html.noscroll {
 
 .sidebar_overlay--contact2 {
 	right: -100%;
-	background: rgba($yellow, 0.2);
+	background: url(../../graphics/pattern8.gif);
+	opacity: 0.05;
+	/*background: rgba($yellow, 0.2);*/
 	transition: all 1.5s cubic-bezier(.175, .885, .32, 1);
 	z-index: 8;
 	&.show {
@@ -583,10 +587,9 @@ html.noscroll {
 			content: '';
 			position: absolute;
 			width: 100%;
-			height: 20px;
+			height: 100%;
 			left: 0;
-			/*background: url(../../graphics/sepa_mini_top.png) top left;*/
-			background-size: 100% 100%;
+			background: rgba($dark-purple,0.95);
 			@extend .transition;
 			z-index: 2;
 		}
@@ -596,12 +599,13 @@ html.noscroll {
 			width: 100%;
 			height: 100%;
 			left: 0;
-			background: rgba(#fff, 1);
+			background: url(../../graphics/pattern8.gif);
 			@extend .transition;
 			z-index: 1;
+			opacity: 1;
 		}
 		&:hover {
-			color: $dark-purple;
+			color: #fff;
 			letter-spacing: 5px;
 			&:before {
 				top: 0;
@@ -627,8 +631,7 @@ html.noscroll {
 	transform-origin: top left;
 	padding-top: 22px;
 	&:before {
-		top: -150%;
-		margin-top: 70px;
+		top: -100%;
 	}
 	&:after {
 		top: -100%;
@@ -642,8 +645,7 @@ html.noscroll {
 	transform-origin: top right;
 	padding-top: 22px;
 	&:before {
-		top: -150%;
-		margin-top: 70px;
+		top: -100%;
 	}
 	&:after {
 		top: -100%;
@@ -668,9 +670,9 @@ html.noscroll {
 		top: 0;
 		left: 0;
 		height: 100%;
-		background: url(../../graphics/pattern3.gif);
+		background: url(../../graphics/pattern8.gif) center center;
 		width: 0;
-		opacity: 0.2;
+		opacity: 0.1;
 		@extend .transition;
 	}
 	&:after {
