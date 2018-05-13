@@ -18,7 +18,7 @@ function parallaxBg(){
 	var ratio_x_overlay = x / 800;
   var scale = 1 +  x / 2000;
   $(".logo").css({'marginTop': ratio_x_logo + 'px'});
-  $("#blob").css({'marginTop': ratio_x_blob + 'px'});
+  // $("#blob").css({'marginTop': ratio_x_blob + 'px'});
   $(".intro_overlay").css({'opacity': ratio_x_overlay});
   // $('.logo').css({'transform': 'translate(-50%, -50%) scale('+scale+','+scale+')'});
   $(".section--intro").css({'backgroundPosition': '0% ' + ratio_x_logo + 'px'});
