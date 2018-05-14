@@ -12,10 +12,10 @@ var _typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function
    ========================================================================== */
 
 function parallaxBg(){
-	var x = $(this).scrollTop();
-	var ratio_x_logo = parseInt(-x / 2);
-	var ratio_x_blob = parseInt(-x / 2.5);
-	var ratio_x_overlay = x / 800;
+  var x = $(this).scrollTop();
+  var ratio_x_logo = parseInt(-x / 2);
+  var ratio_x_blob = parseInt(-x / 2.5);
+  var ratio_x_overlay = x / 800;
   var scale = 1 +  x / 2000;
   $(".logo").css({'marginTop': ratio_x_logo + 'px'});
   // $("#blob").css({'marginTop': ratio_x_blob + 'px'});
@@ -24,10 +24,23 @@ function parallaxBg(){
   $(".section--intro").css({'backgroundPosition': '0% ' + ratio_x_logo + 'px'});
 }
 
+function checkNav(){
+	var x = $(this).scrollTop();
+	var y = $(".section--projects").offset().top;
+  if(x>=y){
+    $("body").addClass("hasmenuvisible");
+  } else {
+    $("body").removeClass("hasmenuvisible");
+  }
+}
+
 function openSidebar(sidebar){
+  if(sidebar!="menu"){
+    $("body").addClass("hasmenuvisible");
+  }
   $("body").addClass("hasmenu");
   $(".nav__links li").removeClass("active");
-  $(".sidebar, .sidebar_overlay").not(".sidebar[data-sidebar=projects]").removeClass("show");
+  $(".sidebar, .sidebar_overlay").not(".sidebar[data-sidebar=projects], .sidebar[data-sidebar=menu]").removeClass("show");
   $(".sidebar[data-sidebar="+sidebar+"], .sidebar_overlay[data-sidebar="+sidebar+"], .sidebar__close").addClass("show");
   $(".nav__links li[data-sidebar="+sidebar+"]").addClass("active");
   stopScrolling();  
@@ -35,7 +48,7 @@ function openSidebar(sidebar){
 
 function closeSidebar(){
 	$(".sidebar, .sidebar_overlay, .sidebar__close").removeClass("show");
-	$("body").removeClass("hasmenu");
+	$("body").removeClass("hasmenu hasmenuvisible");
 	$(".nav__links li").removeClass("active");
 	continueScrolling();
 }
@@ -65,9 +78,11 @@ $(document).ready(function(){
    ========================================================================== */
 
 	parallaxBg();
+  // checkNav();
 
 	$(window).on("scroll resize",function(){
-		parallaxBg();
+    parallaxBg();
+		// checkNav();
 	});
 
 /* ==========================================================================
@@ -77,13 +92,14 @@ $(document).ready(function(){
    $(".trigger_sidebar").click(function(){
       var sidebar = $(this).data("sidebar");
       openSidebar(sidebar);
+      $(".sidebar[data-sidebar=menu]").removeClass("show");
    });
 
    $(".hamburger").click(function(){
       if($("body").hasClass("hasmenu")){
-   		 closeSidebar();
+        closeSidebar();
       } else {
-        openSidebar("about");
+        openSidebar("menu");
       }
    });
 

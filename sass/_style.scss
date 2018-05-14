@@ -149,7 +149,7 @@ body {
 }
 
 .section {
-	background-color: #fff;
+	background-color: $dark-purple;
 	min-height: 100%;
 	overflow: hidden;
 }
@@ -165,7 +165,7 @@ body {
 
 .section--projects {
 	position: relative;
-	z-index: 10;
+	z-index: 8;
 }
 
 .intro_overlay {
@@ -257,12 +257,28 @@ html.noscroll {
 }
 
 .sidebar--projects {
+	// top: -100%;
+	opacity: 0;
 	top: 0;
-	display: none;
+	pointer-events: none;
+	// display: none;
 	background: $dark-purple;
 	z-index: 9;
 	&.show {
-		display: block;
+		top: 0;
+		opacity: 1;
+		pointer-events: auto;		
+	}	
+}
+
+.sidebar--menu {
+	opacity: 0;
+	pointer-events: none;
+	background: rgba($dark-purple,0.98);
+	z-index: 8;
+	&.show {
+		opacity: 1;
+		pointer-events: auto;
 	}	
 }
 
@@ -373,6 +389,61 @@ html.noscroll {
 	padding-bottom: 100px;
 }
 
+.sidebar__centering {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);	
+}
+
+.sidebar__item {
+	text-align: center;
+	opacity: 0;
+	position: relative;
+	color: #fff;
+	cursor: pointer;
+	margin-bottom: 20px;
+	&:hover {
+		color: $yellow;
+	}
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.sidebar__item--menu1 {
+	left: -10%;
+	transition: all 1s cubic-bezier(.175, .885, .32, 1);
+}
+.sidebar__item--menu2 {
+	right: -10%;
+	transition: all 1s 0.1s cubic-bezier(.175, .885, .32, 1);
+}
+.sidebar__item--menu3 {
+	left: -10%;
+	transition: all 1s 0.2s cubic-bezier(.175, .885, .32, 1);
+}
+
+.show {
+	.sidebar__item--menu1 {
+		opacity: 1;
+		left: 0;
+	}
+	.sidebar__item--menu2 {
+		opacity: 1;
+		right: 0;
+	}
+	.sidebar__item--menu3 {
+		opacity: 1;
+		left: 0;
+	}
+}
+
+.sidebar__title {
+	@extend .roadrage;
+	font-size: 48px;
+}
+
 /* ==========================================================================
 	Titles
    ========================================================================== */
@@ -401,6 +472,17 @@ html.noscroll {
 	left: 0;
 	z-index: 9;
 	height: 10px;
+}
+
+.sepa_gradient {
+	width: 100%;
+	position: absolute;
+	display: block;
+	bottom: 0;
+	left: 0;
+	z-index: 7;
+	height: 200px;
+	pointer-events: none;
 }
 
 /* ==========================================================================
@@ -451,7 +533,7 @@ html.noscroll {
 	display: block;
 	cursor: pointer;
 	@extend .bounce;
-	z-index: 10;	
+	z-index: 8;	
 }
 
 .logo__cta {
@@ -560,7 +642,7 @@ html.noscroll {
 	}
 }
 
-.hasmenu {
+.hasmenuvisible, .hasnav {
 	.nav__title {
 		margin-top: -65px;
 	}
@@ -570,10 +652,14 @@ html.noscroll {
 }
 
 .nav--intro {
+	z-index: 1000;
+	position: relative;
 	.nav__item {
 		position: fixed;
 		text-transform: uppercase;
-		letter-spacing: 3px;
+		// letter-spacing: 3px;
+		font-weight: 600;
+		color: $dark-purple;
 		/*color: #fff;*/
 		font-size: 13px;
 		z-index: 8;
@@ -606,7 +692,7 @@ html.noscroll {
 		}
 		&:hover {
 			color: #fff;
-			letter-spacing: 5px;
+			letter-spacing: 3px;
 			&:before {
 				top: 0;
 			}
@@ -651,6 +737,15 @@ html.noscroll {
 		top: -100%;
 	}	
 } 
+
+.hasmenu {
+	.nav__item--abs1 {
+		left: -65px;
+	}
+	.nav__item--abs2 {
+		right: -65px;
+	}
+}
 
 .hamburger {
 	position: fixed;
@@ -898,7 +993,7 @@ button, input, optgroup, select, textarea {
 }
 
 .transition_slow {
-	transition: all 2s cubic-bezier(.175, .885, .32, 1);
+	transition: all 1.2s cubic-bezier(.175, .885, .32, 1);
 }
 
 .bounce {

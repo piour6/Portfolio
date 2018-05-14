@@ -38,6 +38,21 @@
 
     <!-- nav -->
 
+    <nav class="nav nav--intro">
+        <ul>
+            <li class="nav__item nav__item--abs1 trigger_sidebar tablet_hidden" data-sidebar="about">
+                <div class="wow fadeInUp" data-wow-delay="0.5s">
+                    <span class="nav__glitch" data-text="À propos de moi">À propos de moi</span>
+                </div>
+            </li>
+            <li class="nav__item nav__item--abs2 trigger_sidebar tablet_hidden" data-sidebar="contact">
+                <div class="wow fadeInUp" data-wow-delay="0.7s">
+                    <span class="nav__glitch" data-text="Me contacter">Me contacter</span>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
     <nav class="nav nav--top">
         <div class="hamburger">
             <div class="hamburger__line hamburger__line--top"></div>
@@ -70,22 +85,9 @@
                 </div>                
             </div>
         </h1>
-        <nav class="nav nav--intro">
-            <ul>
-                <li class="nav__item nav__item--abs1 trigger_sidebar tablet_hidden" data-sidebar="about">
-                    <div class="wow fadeInUp" data-wow-delay="0.5s">
-                        <span class="nav__glitch" data-text="À propos de moi">À propos de moi</span>
-                    </div>
-                </li>
-                <li class="nav__item nav__item--abs2 trigger_sidebar tablet_hidden" data-sidebar="contact">
-                    <div class="wow fadeInUp" data-wow-delay="0.7s">
-                        <span class="nav__glitch" data-text="Me contacter">Me contacter</span>
-                    </div>
-                </li>
-            </ul>
-        </nav>
         <img src="graphics/scroll.png" alt="Scroll" class="logo__scroll trigger_projects" />
-        <img src="graphics/sepa.png" alt="Separation" class="sepa" />
+        <!-- <img src="graphics/sepa.png" alt="Separation" class="sepa" /> -->
+        <img src="graphics/gradient.png" alt="Gradient" class="sepa_gradient" />
         <div class="intro_overlay"></div>        
         <div class="intro_bg"></div>        
         <div class="intro_bg2"></div>        
@@ -144,6 +146,24 @@
     </div>
 
     <!-- // projects -->
+
+    <!-- menu -->
+
+    <div class="sidebar sidebar--menu" data-sidebar="menu">
+        <div class="sidebar__centering">
+            <div class="sidebar__item sidebar__item--menu1 trigger_sidebar" data-sidebar="about">
+                <strong class="sidebar__title glitch" data-text="À propos">À propos</strong>
+            </div>
+            <div class="sidebar__item sidebar__item--menu2 trigger_sidebar" data-sidebar="contact">
+                <strong class="sidebar__title glitch" data-text="Me contacter">Me contacter</strong>
+            </div>
+            <div class="sidebar__item sidebar__item--menu3 trigger_sidebar" data-sidebar="projects">
+                <strong class="sidebar__title glitch" data-text="Mes projets">Mes projets</strong>
+            </div>    
+        </div>    
+    </div>
+
+    <!-- // menu -->
 
     <!-- blob -->
     <canvas id="blob"></canvas>
